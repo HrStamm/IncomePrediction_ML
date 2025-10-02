@@ -56,7 +56,7 @@ This transformation was necessary, but it reduces the interpretability and gener
 ---
 
 ## 📂 What’s inside the repo  
-- `Projekt2.ipynb` → Full notebook (covers Project 1 preprocessing + Project 2 modeling, results, and plots).  
+- `Code for both Projects.ipynb` → Full notebook (covers Project 1 preprocessing + Project 2 modeling, results, and plots).  
 - `Project 2 - code.py` → Standalone Python script of Project 2 code.  
 - `corrected_data1.csv` → Dataset after preprocessing.
 - `marketing.info.txt` → Information about the dataset used
