@@ -21,16 +21,19 @@ This project builds on our first one, where we cleaned and preprocessed the data
 ---
 
 ## ⚠️ Dataset limitations  
-Our dataset had a key limitation: **the target variable (annual household income) was not continuous, but ordinal.**  
+One major limitation of our dataset was that the target variable, **annual household income**, was only available in ordinal categories rather than as true continuous values.  
 
-To use regression, we had to **approximate each income group by its average value.**  
-- This made it possible to train regression models, but introduced uncertainty and approximation error.  
-- As a result, model coefficients should be interpreted with caution – they may not fully reflect real-world economic relationships.  
+To make the data usable for regression, we converted each income bracket into a representative numeric value. This allowed us to apply regression models, but also introduced some important challenges:  
+- The target variable became **artificially continuous**, since the values were assigned by us and not observed directly.  
+- This means that predicted values and model coefficients cannot be interpreted as exact measures of real-world income relationships.  
+- Especially at the higher end of the scale, the mapping introduced a **ceiling effect**, where very different income levels were collapsed into the same numeric value.  
+
+As a result, while the mapping made it possible to compare regression and classification methods on the same task, it also limits the interpretability and generalizability of our results.    
 
 ---
 
 ## 🧠 How we did it  
-- Preprocessing with one-hot encoding + z-score normalization.  
+- Preprocessing with one-hot encoding, z-score normalization, mode imputation and mapping of the target variable (Annual_Income)
 - Tried out different models: from simple linear regression to more flexible ANN.  
 - Used **nested 10-fold cross-validation** to tune hyperparameters fairly.  
 - Ran **statistical tests** (paired t-tests) to check if differences in performance were actually significant.  
@@ -54,7 +57,8 @@ To use regression, we had to **approximate each income group by its average valu
 
 ## 📂 What’s inside the repo  
 - `Projekt2.ipynb` → Jupyter Notebook with full analysis, results, and plots.  
-- `Project 2 - code.py` → Standalone Python script.  
+- `Project 2 - code.py` → Standalone Python script.
+- `corrected_data1.csv` → Data after preprocessing
 ---
 
 ## 🔮 Reflections & Future Ideas  
